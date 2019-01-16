@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV GOVERSION=1.10.3
+ENV GOVERSION=1.11.4
 RUN \ 
   cd /usr/local && \  
   yum install -y wget git gcc gdb make && \
