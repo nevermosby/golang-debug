@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV GOVERSION=1.11.4
+ENV GOVERSION=1.10.3
 RUN \ 
   cd /usr/local && \  
   yum install -y wget git gcc gdb make && \
@@ -9,9 +9,9 @@ RUN \
   rm -f go${GOVERSION}.linux-amd64.tar.gz
 
 ENV GOROOT=/usr/local/go
-ENV GOPATH=/root/go
 ENV PATH=$PATH:/usr/local/go/bin:/root/go/bin
-
 RUN go get -u github.com/derekparker/delve/cmd/dlv
 
+ENV GOPATH=/root/go
+RUN mv /root/go/bin/dlv /usr/local/go/bin/
 WORKDIR /root/go
