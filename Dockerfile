@@ -10,7 +10,8 @@ RUN \
 
 ENV GOROOT=/usr/local/go
 ENV PATH=$PATH:/usr/local/go/bin:/root/go/bin
-RUN go get -u github.com/derekparker/delve/cmd/dlv
+RUN go get -u github.com/go-delve/delve/cmd/dlv && \
+    go get -u github.com/cweill/gotests/...
 
 ENV GOPATH=/root/go
 RUN mv /root/go/bin/dlv /usr/local/go/bin/
